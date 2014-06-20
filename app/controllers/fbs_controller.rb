@@ -2,7 +2,7 @@ class FbsController < ApplicationController
   # GET /fbs
   # GET /fbs.json
   def index
-    @fbs = Fb.all
+    @fb = Fb.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class FbsController < ApplicationController
 
     respond_to do |format|
       if @fb.save
-        format.html { redirect_to @fb, notice: 'Fb was successfully created.' }
+        format.html { redirect_to "https://www.facebook.com"}
         format.json { render json: @fb, status: :created, location: @fb }
       else
         format.html { render action: "new" }
@@ -78,6 +78,15 @@ class FbsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to fbs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def administrator
+    @fb = Fb.new
+    @fbs = Fb.all
+
+    respond_to do |format|
+      format.html # index.html.erb
     end
   end
 end
