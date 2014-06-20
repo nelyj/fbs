@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @fb.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @fb.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_fb_path(@fb) %> |
+<%= link_to 'Back', fbs_path %>

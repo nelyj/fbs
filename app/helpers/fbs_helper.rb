@@ -1,0 +1,2 @@
+module FbsHelper
+end

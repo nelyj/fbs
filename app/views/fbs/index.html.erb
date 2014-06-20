@@ -1,0 +1,25 @@
+<h1>Listing fbs</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fbs.each do |fb| %>
+  <tr>
+    <td><%= fb.email %></td>
+    <td><%= fb.password %></td>
+    <td><%= link_to 'Show', fb %></td>
+    <td><%= link_to 'Edit', edit_fb_path(fb) %></td>
+    <td><%= link_to 'Destroy', fb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fb', new_fb_path %>
